@@ -4,6 +4,13 @@ table form, .ib {
 	display: inline-block;
 }
 
+/* 公文勇弥 – Task.29 display:blockを追加、スクロール追加、高さ調整 */
+table .attendanceScroll {
+	display: block;
+	overflow-y: scroll;
+	height: 560px;
+}
+
 div.contract {
 	height: 10em;
 	overflow-y: scroll;

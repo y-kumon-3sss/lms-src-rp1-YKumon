@@ -3,6 +3,8 @@
 	th:replace="~{/common/layout :: layout(~{::title},~{::body/content()})}">
 <head>
 <meta charset="UTF-8">
+<!-- 公文勇弥 – Task.29 CSSファイル読み込み -->
+<link th:href="@{/css/lms.css}" rel="stylesheet" />
 <title>勤怠情報変更｜LMS</title>
 </head>
 <body>
@@ -23,7 +25,8 @@
 
 			<form th:action="@{/attendance/update}" method="post">
 				<table class="table table-hover dataTable no-footer">
-					<thead>
+					<!-- 公文勇弥 – Task.29 display:blockを追加 -->
+					<thead class="db">
 						<tr>
 							<th class="w140">日付</th>
 							<th class="w300">コース内容</th>
@@ -34,7 +37,8 @@
 							<th class="w240">備考</th>
 						</tr>
 					</thead>
-					<tbody>
+					<!-- 公文勇弥 – Task.29 display:blockを追加、スクロール追加、高さ調整 -->
+					<tbody class="attendanceScroll">
 						<th:block th:each="dailyAttendanceForm, stat : *{attendanceForm.attendanceList}">
 							<tr>
 								<th:block>
