@@ -47,6 +47,11 @@ public class AttendanceController {
 				.getAttendanceManagement(loginUserDto.getCourseId(), loginUserDto.getLmsUserId());
 		model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
 
+		// 過去日の勤怠に未入力の場合、ダイアログ表示用フラグ 
+		boolean notEnterFlg = studentAttendanceService.getNotEnterFlg(loginUserDto.getLmsUserId(),
+				Constants.DB_FLG_FALSE);
+		model.addAttribute("notEnterFlg", notEnterFlg);
+
 		return "attendance/detail";
 	}
 

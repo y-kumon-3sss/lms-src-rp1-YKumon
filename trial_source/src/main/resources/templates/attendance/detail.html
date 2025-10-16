@@ -28,6 +28,9 @@
 
 	<th:block th:if="${session.loginUserDto.role == '0001'}">
 		<div class="well well-lg p10 mb10">
+		<!-- Task25 公文 過去日の勤怠の未入力フラグ -->
+		<input type="hidden" id="notEnterFlg" th:value="${notEnterFlg}" />
+		
 			<div class="form-group">
 				<small id="now"></small>
 			</div>
@@ -79,6 +82,12 @@
 			setInterval(function() {
 				$("#now").text('現在の時刻は　' + getClock() + '　です。');
 			}, 1000);
+			
+			/* Task25 公文 過去日の勤怠に未入力の場合、ダイアログ表示 */
+			const notEnterFlg = document.getElementById("notEnterFlg").value;
+			if (notEnterFlg == 'true') {
+	            alert('過去日の勤怠に未入力があります。');
+	        }
 		});
 		function getClock() {
 			const today =  new Date();
